@@ -12,12 +12,12 @@ interface Contract {
 export class ContractService {
   async createContract(contractParameters: CreateContract): Promise<Contract> {
     const contract = erc1155.print({
-      name: contractParameters.name,
+      name: contractParameters.name.toUpperCase(),
       uri: contractParameters.uri,
       mintable: contractParameters.mintable,
       burnable: contractParameters.burnable,
     });
 
-    return await compile(contract, contractParameters.name);
+    return await compile(contract, contractParameters.name.toUpperCase());
   }
 }

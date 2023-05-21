@@ -88,7 +88,7 @@ function getImportCallback(zeppelinPath) {
   return (path) => {
     let contents;
     if (path.startsWith('@openzeppelin/')) {
-      console.log(path);
+      // console.log(path);
       const filePath = zeppelinPath + path.replace('@openzeppelin/', '');
       contents = fs.readFileSync(filePath, 'utf8');
     } else {

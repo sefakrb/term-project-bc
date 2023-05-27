@@ -5,6 +5,7 @@ import { ContractService } from 'src/service/contract.service';
 interface Contract {
   abi: string;
   byteCode: string;
+  mainContract: string;
 }
 
 @Controller('contract')
@@ -17,11 +18,13 @@ export class ContractController {
   }
 
   @Post('/create')
-  createContract(
+  async createContract(
     @Body() contractParameters: CreateContract,
   ): Promise<Contract> {
-    const contract = this.contractService.createContract(contractParameters);
+    const response = await this.contractService.createContract(
+      contractParameters,
+    );
 
-    return contract;
+    return response;
   }
 }

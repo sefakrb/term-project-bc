@@ -6,7 +6,7 @@ import * as compile from '../../utils/compile.js';
 interface Contract {
   abi: string;
   byteCode: string;
-  sourceCode: string;
+  mainContract: string;
 }
 
 @Injectable()
@@ -20,6 +20,16 @@ export class ContractService {
       access: contractParameters.ownable ? 'ownable' : 'roles',
     });
 
-    return await compile(contract, contractParameters.name.toUpperCase());
+    return await compile(contract, contractParameters.name.toUpperCase()).then(
+      (res: { abiString: any; bytecode: any; sourceCode: any }) => {
+        const response: Contract = {
+          abi: res.abiString,
+          byteCode: res.bytecode,
+          mainContract: res.sourceCode,
+        };
+
+        return response;
+      },
+    );
   }
 }

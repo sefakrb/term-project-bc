@@ -35,7 +35,8 @@ async function compile(sourceCode, name) {
 
   // console.log('Read functions:', readFuncNames);
   // console.log('Write functions:', writeFuncNames);
-  return { abi, bytecode, sourceCode };
+  const abiString = JSON.stringify(abi);
+  return { abiString, bytecode, sourceCode };
 }
 
 function createConfiguration(sourceCode, contractFileName) {

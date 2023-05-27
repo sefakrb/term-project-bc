@@ -3,4 +3,5 @@ export class CreateContract {
   uri: string;
   mintable: boolean;
   burnable: boolean;
+  ownable: boolean;
 }

@@ -6,6 +6,7 @@ import * as compile from '../../utils/compile.js';
 interface Contract {
   abi: string;
   byteCode: string;
+  sourceCode: string;
 }
 
 @Injectable()
@@ -16,6 +17,7 @@ export class ContractService {
       uri: contractParameters.uri,
       mintable: contractParameters.mintable,
       burnable: contractParameters.burnable,
+      access: contractParameters.ownable ? 'ownable' : 'roles',
     });
 
     return await compile(contract, contractParameters.name.toUpperCase());

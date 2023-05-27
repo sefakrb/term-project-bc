@@ -35,7 +35,7 @@ async function compile(sourceCode, name) {
 
   // console.log('Read functions:', readFuncNames);
   // console.log('Write functions:', writeFuncNames);
-  return { abi, bytecode };
+  return { abi, bytecode, sourceCode };
 }
 
 function createConfiguration(sourceCode, contractFileName) {

@@ -3,23 +3,23 @@ import { Transaction } from 'src/dto/transaction.dto';
 import { TransactionService } from 'src/service/transaction.service';
 
 interface TransactionResult {
-    blockNumber: string;
-    timeStamp: string;
-    hash: string;
-    nonce: string;
-    transactionIndex: string;
-    from: string;
-    to: string;
-    value: string;
-    txreceipt_status: string;
-    gasUsed: string;
-    confirmations: string;
-    functionName: string;
+  blockNumber: string;
+  timeStamp: string;
+  hash: string;
+  nonce: string;
+  transactionIndex: string;
+  from: string;
+  to: string;
+  value: string;
+  txreceipt_status: string;
+  gasUsed: string;
+  confirmations: string;
+  functionName: string;
 }
 
 @Controller('transaction')
 export class TransactionController {
-  constructor(private transactionService : TransactionService) {}
+  constructor(private transactionService: TransactionService) {}
 
   @Get()
   findAll(): string {
@@ -30,7 +30,9 @@ export class TransactionController {
   createContract(
     @Body() transactionParameters: Transaction,
   ): TransactionResult {
-    const response = this.transactionService.displayTransactions(transactionParameters.contractAddress);
+    const response = this.transactionService.displayTransactions(
+      transactionParameters.contractAddress,
+    );
 
     return response;
   }

@@ -26,8 +26,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
-Sefa Karabaş - sefaa.karabas@gmail.com
-Project Link: [https://github.com/sefakrb/term-project-backend](https://github.com/sefakrb/term-project-backend)
+Project Link: [https://github.com/sefakrb/term-project-bc](https://github.com/sefakrb/term-project-bc)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
